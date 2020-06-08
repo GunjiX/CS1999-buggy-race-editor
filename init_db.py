@@ -23,15 +23,15 @@ print("- Opened database successfully in file \"{}\"".format(DATABASE_FILE))
 # using Python's triple-quote for multi-line strings:
 
 con.execute("""
-
   CREATE TABLE IF NOT EXISTS buggies (
     id                    INTEGER PRIMARY KEY,
     qty_wheels            INTEGER DEFAULT 4,
+    hamster_booster       INTEGER DEFAULT 0,
     flag_color            VARCHAR(20),
     flag_color_secondary  VARCHAR(20),
-    flag_pattern          VARCHAR(20)
+    flag_pattern          VARCHAR(20),
+    total_cost            INTEGER DEFAULT 0
   )
-
 """)
 
 print("- Table \"buggies\" exists OK")
