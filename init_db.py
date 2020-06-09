@@ -27,9 +27,9 @@ con.execute("""
     id                    INTEGER PRIMARY KEY,
     qty_wheels            INTEGER DEFAULT 4,
     hamster_booster       INTEGER DEFAULT 0,
-    flag_color            VARCHAR(20),
-    flag_color_secondary  VARCHAR(20),
-    flag_pattern          VARCHAR(20),
+    flag_color            VARCHAR(20) DEFAULT 'orange',
+    flag_color_secondary  VARCHAR(20) DEFAULT 'black',
+    flag_pattern          VARCHAR(20) DEFAULT 'plain',
     total_cost            INTEGER DEFAULT 0
   )
 """)
@@ -43,7 +43,7 @@ rows = cur.fetchall()
 if len(rows) == 0:
   cur.execute("INSERT INTO buggies (qty_wheels) VALUES (4)")
   con.commit()
-  print("- Added one 4-wheeled buggy")
+  print("- Added buggy")
 else:
   print("- Found a buggy in the database, nice")
 print("- done")

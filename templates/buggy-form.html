@@ -8,20 +8,32 @@
   </p>
   <form action="/new" method="post">
     <label for="qty_wheels">Number of wheels:</label>
-    <input type="text" name="qty_wheels" value="{{ buggy['qty_wheels'] }}" />
+    <input type="text" name="qty_wheels" />
+<!-- value = "buggy['qty_wheels']" Insert in line above with squigly brackets--> 
+<br>
+  <p>Insert an even number that is more than 3.</p>
 <br>
     <label for="hamster_booster">Hamster boosters:</label>
-    <input type="text" name="hamster_booster" value="{{ buggy['hamster_booster'] }}" />
+    <input type="text" name="hamster_booster" />
+<!-- value = "buggy['hamster_booster']" Insert in line above with squigly brackets--->
 <br>
-    <label for="flag_color">Flag color:</label>
-    <input type="text" name="flag_color" value="{{ buggy['flag_color'] }}" />
+  <p>Insert a number. (Remember: Each hamster booster currently has a cost of 5)</p>
 <br>
-    <label for="flag_color_secondary">Secondary flag color:</label>
-    <input type="text" name="flag_color_secondary" value="{{ buggy['flag_color_secondary'] }}"/>
+    <label for="flag_color">Flag color: </label>
+    <input type="text" name="flag_color" />
+<!-- value = "buggy['flag_color']" Insert in line above with squigly brackets--->
+<br>
+  <p>Insert a valid CSS color or hex code. (Include '#' for hex codes)(This <a href="https://www.color-hex.com">website</a> might help)</p>
+<br>
+    <label for="flag_color_secondary">Secondary flag color: </label>
+    <input type="text" name="flag_color_secondary" />
+<!-- value = "buggy['flag_color_secondary']" -->
+<br>
+  <p>Insert a different CSS color or hex code. (Include '#' for hex codes)</p>
 <br>
     <label for="flag_pattern">Flag pattern:</label>
     <select name="flag_pattern">
-      <option selected >{{ buggy['flag_pattern'] }}</option>
+<!-- <option>"buggy['flag_pattern']"</option> Insert squigly brackets-->
       <option>plain</option>
       <option>vstripe</option>
       <option>hstripe</option>
@@ -29,6 +41,8 @@
       <option>checker</option>
       <option>spot</option>
 	</select>
+<br>
+  <p>Select a flag pattern from the drop down list.</p>
 <br>
     <input type="submit" class="button">
   </form>

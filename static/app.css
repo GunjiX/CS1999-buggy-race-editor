@@ -3,23 +3,23 @@ html{
   padding: 0; 
 }
 body {
-  font-family: "Source Sans Pro","Helvetica Neue",Arial,Helvetica,sans-serif;
+  font-family: Copperplate,Copperplate Gothic Light,fantasy;
   margin: 0;
   padding: 0;
   font-size: 1.2em;
   color: #000000;
   background: repeating-linear-gradient(
     45deg,
-    #ffffee,
-    #ffffee 2em,
-    #eeeeee 2em,
-    #eeeeee 4em
+    #1a7817,
+    #1a7817 2em,
+    #000000 2em,
+    #000000 4em
   );
 }
 .main-content {
   min-height:100vh;
   padding: 1em;
-  background: white;
+  background: #ffaa17;
   margin: 0 0 0 3em;
 }
 h1 {

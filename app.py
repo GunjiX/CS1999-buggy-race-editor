@@ -21,43 +21,48 @@ def home():
 #------------------------------------------------------------
 @app.route('/new', methods = ['POST', 'GET'])
 def create_buggy():
+
+#  con = sql.connect(DATABASE_FILE)
+#  con.row_factory = sql.Row
+#  cur = con.cursor()
+#  cur.execute("SELECT * FROM buggies")
+#  record = cur.fetchone();
+
   if request.method == 'GET':
-    
-    con = sql.connect(DATABASE_FILE)
-    con.row_factory = sql.Row
-    cur = con.cursor()
-    cur.execute("SELECT * FROM buggies")
-    record = cur.fetchone();
-    
-    return render_template("buggy-form.html", buggy = record)
+    return render_template("buggy-form.html") #buggy = record
   elif request.method == 'POST':
     msg=""
     qty_wheels = request.form['qty_wheels']
     if not qty_wheels.isdigit():
       msg = f"This is not a number: {qty_wheels}"
       print('not a number'),
-      #return render_template("buggy-form.html", msg = msg) #                      (HIGHLIGHT ERROR)
+      return render_template("buggy-form.html", msg = msg) #                      (HIGHLIGHT ERROR)
     elif int(qty_wheels) < 4:
       msg = f"You must have at least 4 wheels"
       print('number is less than 4'),
-      #return render_template("buggy-form.html", msg = msg) #                      (HIGHLIGHT ERROR)
+      return render_template("buggy-form.html", msg = msg) #                      (HIGHLIGHT ERROR)
     elif int(qty_wheels) % 2 != 0:
       msg = f"You must have an even number of wheels"
       print('odd number'),
-      #return render_template("buggy-form.html", msg = msg) #                      (HIGHLIGHT ERROR)
+      return render_template("buggy-form.html", msg = msg) #                      (HIGHLIGHT ERROR)
     hamster_booster = request.form['hamster_booster']
+    if not hamster_booster.isdigit():
+      msg = f"This is not a number: {hamster_booster}"
+      print('not a number'),
+      return render_template("buggy-form.html", msg = msg) #                      (HIGHLIGHT ERROR)
     total_cost = 5 * int(request.form['hamster_booster'])
     try:
       flag_color = request.form['flag_color']
       flag_color_secondary = request.form['flag_color_secondary']
       flag_pattern = request.form['flag_pattern']
-      #msg = f"qty_wheels={qty_wheels}, flag_color={flag_color}, flag_color_secondary={flag_color_secondary}, flag_pattern={flag_pattern}" 
+      msg = f"qty_wheels={qty_wheels}, hamster_booster={hamster_booster}, flag_color={flag_color}, flag_color_secondary={flag_color_secondary}, flag_pattern={flag_pattern}" 
       with sql.connect(DATABASE_FILE) as con:
         cur = con.cursor()
-        cur.execute(
-          "UPDATE buggies set qty_wheels=?, hamster_booster=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, total_cost=? WHERE id=?", 
-          (qty_wheels, hamster_booster, flag_color, flag_color_secondary, flag_pattern, total_cost, DEFAULT_BUGGY_ID)
-        )
+#        cur.execute(
+#          "UPDATE buggies set qty_wheels=?, hamster_booster=?, flag_color=?, flag_color_secondary=?, flag_pattern=?, total_cost=? WHERE id=?", 
+#          (qty_wheels, hamster_booster, flag_color, flag_color_secondary, flag_pattern, total_cost, DEFAULT_BUGGY_ID)
+#        )
+        cur.execute("INSERT INTO buggies (qty_wheels), VALUES (?)" (qty_wheels,))
         con.commit()
         msg = "Record successfully saved"
     except:
@@ -76,15 +81,21 @@ def show_buggies():
   con.row_factory = sql.Row
   cur = con.cursor()
   cur.execute("SELECT * FROM buggies")
-  record = cur.fetchone(); 
-  return render_template("buggy.html", buggy = record)
+  records = cur.fetchall(); 
+  return render_template("buggy.html", buggies = records)
 
 #------------------------------------------------------------
-# a page for displaying the buggy
+# a page for edit the buggy
 #------------------------------------------------------------
-@app.route('/new')
-def edit_buggy():
-  return render_template("buggy-form.html")
+@app.route('/edit/<buggy_id>')
+def edit_buggy(buggy_id):
+#  con = sql.connect(DATABASE_FILE)
+#  con.row_factory = sql.Row
+#  cur = con.cursor()
+#  cur.execute("SELECT * FROM buggies WHERE id=?")
+#  records = cur.fetchone(); 
+  return "edit buggy with id {}". format(buggy_id)
+#  return render_template("buggy-form.html", buggy=record)
 
 
 #------------------------------------------------------------

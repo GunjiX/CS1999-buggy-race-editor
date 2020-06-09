@@ -4,6 +4,16 @@ CS1999: Buggy Race Editor
 > This is the "buggy editor" component of the Foundation Year Computer Science
 > project at RHUL.
 
+## Phase 2: Rules
+
+The rules that I have added to my project are the ones regarding the wheels, I have made it so that There must be an even number of wheels and there must be an even amount.
+
+## Phase 3: ENV
+
+You can launch the webserver in a developer environment by typing in "FLASK_ENV=development python3 app.py" instead of "python3 app.py".
+
+
+
 Overview
 --------
 
@@ -147,7 +157,7 @@ Then, if you haven't done so already, activate the virtual environment:
 Activate the virtual environment. On Windows, do:
 
     .\venv\Scripts\activate
-    
+
 On Linux or Mac:
 
     source venv/bin/activate
@@ -191,7 +201,6 @@ If you've finished, you can deactivate the virtual environment:
     deactivate
 
 You're done!
-
 
 ---
 

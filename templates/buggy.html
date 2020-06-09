@@ -4,6 +4,7 @@
 
   <h1>Buggy</h1>
 
+{% for buggy in buggies %}
   <table>
    <tr>
      <td>ID:</td> <td> {{ buggy['id'] }} </td>
@@ -26,7 +27,22 @@
    <tr>
      <td>Total cost:</td> <td> {{ buggy['total_cost'] }} </td>
     </tr>
+   <tr>
+     <td colspan="2"> <a href="/edit/{{ buggy['id'] }}">edit me</a> </td>
+    </tr>
   </table>
+
+  <p>Flag Design</p>
+
+  <svg width="300" height="200">
+    <rect width="300" height="180" style="fill:{{ buggy['flag_color'] }}" />
+  </svg>
+  
+  <svg width="120" height="200">
+    <rect width="300" height="180" style="fill:{{ buggy['flag_color_secondary'] }}" />
+  </svg>
+
+{% endfor %}
 
   <p>
     <a href="/" class="button">home</a>
