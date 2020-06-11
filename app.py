@@ -15,6 +15,13 @@ def home():
    return render_template('index.html', server_url=BUGGY_RACE_SERVER_URL)
 
 #------------------------------------------------------------
+# a page for poster
+#------------------------------------------------------------
+@app.route('/poster')
+def poster():
+   return render_template('poster.html')
+
+#------------------------------------------------------------
 # creating a new buggy:
 #  if it's a POST request process the submitted data
 #  but if it's a GET request, just show the form

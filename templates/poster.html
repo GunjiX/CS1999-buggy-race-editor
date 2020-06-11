@@ -1,17 +1,207 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-  <h1>
-    Poster
-  </h1>
+<style>
+  .cs1999-tasks {
+    border-top: 1px solid black;
+    margin-top: 4em;
+  }
+  .cs1999-tasks .task {
+    margin: 1em;
+    padding: 1em;
 
+  }
+  .cs1999-tasks .task h2 {
+    border-bottom: 3px solid #ffaa17;
+  }
+</style>
+<h1>PROJECT POSTER</h1>
+
+<h2>What is Buggy Editor?</h2>
+<p>
+Buggy Editor is a basic website, that will allow you to easily put together an awesome buggy that you can take to the races. With this clear and simple to use web form, making a buggy is easier than ever, we've provided you with all the boxes you need to fill in. Once its done all you have to do is take your buggy to the starting line, and get ready to compete against other people's designs.
+</p>
+
+<h2>IT CAN DO WHAT!!</h2>
+<p>
+ This editor will allow you to decide values from number of wheels to how many hamster boosters you want, you can even input how you want your flag to look. Once you have chosen and told us what you want the form will calculate the total cost and provide you with a special access code, or "Buggy JSON", that when taken to the race server will become a racing machine to be reckoned with.
+</p>
+<p>
+ Providing you with clear marked out boxes for each part of the buggy will allow you to know exactly what and where you can input the values you want; and to make n easy system easier, there is even a drop down menu for options like Flag Pattern, so you dont need to remeber and type all the options.
+</p>
+<p>
+ When you get to the races you may find that there is a price limit on how much your buggy will cost, but dont worry about doing the calculations, our editor will sort that out for you and show you all the information you need in the "Show Buggies" tab.
+</p>
+<br>
+<h3>So? What are you waiting for? Get out there and win some races!</h3>
+
+
+<section class="cs1999-tasks">
+
+  <div class="task">
+    <h2>0-GET Get the source code</h2>
+    <p>
+      I forked the repo on GitHub and then used <code>git clone</code> to make a local copy.
+    </p>
+    <p>
+      Once the repo was on my own machine I was able to commit changes to version control
+      as I went along, and I pushed back up to my GitHub repo every time I made a new commit.
+      I followed GitHub's instructions and set up a SSH key so I didn't need to enter
+      username and password every time I pushed.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>0-RUN Get app running and view it in a browser</h2>
+    <p>
+      I used <code>pip</code> to install flask, before then initialising my database and launching my webserver app.
+    </p>
+    <p>
+      Following the instructions provided I created a virtual environment on my laptop and would install flask each time I booted up, before intialising the database and then running <code>app.py</code>. I would always run the webserver in developent mode so I could see the changes as I made them.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>0-CHANGE Make a change to a template and see it appear</h2>
+    <p>
+      I added the text "hello world" to the <code>index.html</code> template to make sure it would display the change.
+    </p>
+    <p>
+      Making sure I was in development mode I opened up <code>index.html</code> and typed "hello world" at the top of the page so that when I refreshed my browser, I would see the changes clearly at the top and I wouldnt have to relaod the webserver and try find if my changes worked properly.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>1-ADD Add more data to the form</h2>
+    <p>
+      Using the same pattern that <code>qty_wheels</code> had been added to form, I added flag colour. 
+    </p>
+    <p>
+      I found all instances of where <code>qty_wheels</code> had been added to different scripts, and tried to understand what each part did. I then used the same pattern copying the code and changing the values from <code>qty_wheels</code> to <code>flag_color</code> to get the new value to the data form. 
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>1-VALID Add basic data validation</h2>
+    <p>
+      I used an if statement to make sure the user input was valid.
+    </p>
+    <p>
+      I took the <code>qty_wheels</code> lines in the <code>app.py</code> script outside of try and added some the line <code>if not qty_wheels.isdigit():</code>. This would check if the input was a number, if it wasn't I would reload the form page with an error message and not submit anything to the database.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>1-STYLE Style your editor just how you like it</h2>
+    <p>
+      I made some small changes to the CSS file so that the colour scheme and fonts looked cleaner and had nicer aesthetics.
+    </p>
+    <p>
+      I made some small changes to <code>app.css</code>. I only really touched the page colours and the font style. As I wanted the page to stand out a little more, but I liked most of the styling that had already been provided. I think in future I would add some of my own fonts to the files and change it to something more unique.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>2-EDIT Edit the record by loading its current values into the form</h2>
+    <p>
+      I got the form to render the database, and then display the values in the form boxes with their respective values.
+    </p>
+    <p>
+      I had some issues with this section of the project and has been left out of the final submission. When I was implementing it, I had no issues at first and after taking the <code>SHOW</code> section and getting the values to display correctly, but later on when testing I found that it clashed with my validation. When rendering the form template to display the values the validation would no longer work when an invalid input went through. I did nto have time to fix this as I left testing too late instead of doing it incrementally. I ended up commenting out this code and keeping validation as I felt this feature to be more important.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>2-FORM Make the form better</h2>
+    <p>
+      I added a couple of sentences under each input box so that it was clear what input would be needed.
+    </p>
+    <p>
+      I added a sentence under each submission box which had a small instruction as to whatr was needed in each box. This is to attempt to reduce confusion for users and avoid any errors that might occur if something isnt inputted correctly. I also added a html link to a hex color website so that users could find the colours they wanted for their flag.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>2-COST Calculate and save the game cost of the buggy</h2>
+    <p>
+      I added a <code>total_cost</code> value to the table and had it go up by X amount for every hamster booster.
+    </p>
+    <p>
+      I added a new value <code>hamster_booster</code> and <code>total_cost</code>. I then had it so that totral cost would looka t the input for hamster buggies and would multiply the ammount by 5 (the provided cost for a hamster booster) and record the calculated value as the total cost.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>2-RULES Add validation according to the game rules</h2>
+    <p>
+      I added rules the same way as I added validation, I used a couple of if statements to make sure certain conditions were met.
+    </p>
+    <p>
+      I implemented this in a similar way to validation. This time I added 2 new rules, <code>elif int(qty_wheels) &#60 4:</code> and <code>elif int(qty_wheels) % 2 != 0:</code>. These lines made sure that the input for the number of wheels where greater than or equal to 4; and that there are an even number of wheels. These conditions if not met did the same thing as validation in that they would reload the buggy form and display an appropriate error message.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>3-ENV Switch to using development or production environments</h2>
+    <p>
+      I added a couple of short sentences in README.md expalining how i launched by webserver in a development environment.
+    </p>
+    <p>
+      When launching the webserver normally int he teminal the line <code>python3 app.py</code> will launch it. However any changes I make to the scripts whilst in this basic environment wont be displayed or shown on the html. However by using <code>FLASK_ENV=development python3 app.py</code> like I did, I was able to see the changes take place real time and adjut for errors much easier.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>3-AUTOFILL Add auto-fill to the edit forms</h2>
+    <p>
+      N/A
+    </p>
+    <p>
+      I did not attempt this section, but I did have a look and think about how I might go about it. If I had attempted it, the easiest way I found was to add the rules server side and have the form display random values within certain conditions/rules that would have to be updated by hand each time there were new buggy rules.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>3-MULTI Allow different buggies to be created</h2>
+    <p>
+      Partial success only.
+    </p>
+    <p>
+      I had succesfully managed to change the buggy form so that instead of updating the form, it would instead add new buggies to the buggies list each with a new ID. However when I got this wourking it was only recording the qty_wheels value and nothing else. When I went to try fix this, I ended up breaking what code I had and was unable to revert back to what I had. Next time I do a project, I have learnt to save and make backups each time I have a new feature working so it doesnt get lost in the next step of development. I also managed to get a succeful edit me link working however I had a similar issue as I had with 2-EDIT, in that I was unable to succefully render the template for buggy_form.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>3-DEL Allow buggies to be deleted</h2>
+    <p>
+      N/A
+    </p>
+    <p>
+     I did nto get a chance to attempt this section as I felt that it depended to on 3-MULTI beign succesfully implemetned and I did not feel confident adding a delete function to my only buggy as I am not very confident with SQL. If I was to implement this I would try add a command that would identify a buggy id and the related values and delete them. If i could visualise the database I would have found it clearer, as I could pick out which rows or columns to delete.
+    </p>
+  </div>
+
+  <div class="task">
+    <h2>3-FLAG Display the pennant graphically</h2>
+    <p>
+      Partial success only.
+    </p>
+    <p>
+      I succesfully managed to create 2 rectanges that would display beneath each buggy table and show the primary and secondary colour in each one. This is as far as I got, my next step was to have the smaller secorndary colour rectange over lay the larger one, and from there I would have experimented with different shapes to create the appropriate patterns, linking them to the drop down list <code>flag_pattern</code>.
+    </p>
+  </div>
+
+<div class="task">
+  <h2>3-TESTS Write some tests</h2>
   <p>
-    Insert poster here
+    I made a markdown file which describes how I tested each task in the project.
   </p>
-  
   <p>
-    <a href="/" class="button">home</a>
+    For this section, I created a markdown file <code>testing.md</code> and added it to the project folder. In this file I have written up how I tested each section to make sure it was working appropriately and how I would test some sections I was unable to complete. IT was whilst doing this section were I eneded up finding many errors that needed to be fixed, namely that my validation had stopped responding.
   </p>
+</div>
+
+<!-- this closes the section: keep it in! -->
+</section>
 
 {% endblock %}
